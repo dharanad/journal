@@ -6,7 +6,11 @@ CMD_DOCKER=docker
 GO_ENV=CGO_ENABLED=0 GO111MODULE=on
 GO=$(GO_ENV) $(shell which go)
 
-build:
+generate:
+	@$(GO) generate ./...
+	@$(GO) mod tidy
+
+build: generate
 	@$(GO) build -o $(BIN) $(DIR_SRC)
 
 clean:
