@@ -27,4 +27,9 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-require github.com/kr/text v0.2.0 // indirect
+require (
+	github.com/gin-contrib/zap v0.1.0 // indirect
+	github.com/kr/text v0.2.0 // indirect
+	go.opentelemetry.io/otel v1.10.0 // indirect
+	go.opentelemetry.io/otel/trace v1.10.0 // indirect
+)
