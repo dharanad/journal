@@ -1,4 +1,4 @@
-module journal
+module github.com/dharanad/journal
 
 go 1.19
 
