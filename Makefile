@@ -13,3 +13,6 @@ clean:
 	@rm -rf $(BIN)
 
 all: clean build
+
+test:
+	@$(GO) test -v ./...
