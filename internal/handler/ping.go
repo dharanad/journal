@@ -1,11 +1,17 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/dharanad/journal/internal/base/handler"
+	"github.com/gin-gonic/gin"
+)
+
+type PingResponse struct {
+	Status  int    `json:"status,omitempty"`
+	Message string `json:"message"`
+}
 
 func NewPingHandler() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"message": "pong",
-		})
+		handler.HandleResponse(ctx, nil, PingResponse{Message: "Pong"})
 	}
 }
