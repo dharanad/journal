@@ -10,7 +10,7 @@ generate:
 	@$(GO) generate ./...
 	@$(GO) mod tidy
 
-build:
+build: generate
 	@$(GO) build -o $(BIN) $(DIR_SRC)
 
 clean:
