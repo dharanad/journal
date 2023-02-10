@@ -14,7 +14,7 @@ func TestPingHandler(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/ping", nil)
 	r.ServeHTTP(w, req)
 	actual := PingResponse{}
-	err := UnmarshalStruct(w.Body.Bytes(), actual)
+	err := UnmarshalStruct(w.Body.Bytes(), &actual)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, 200, actual.Status)
 	assert.Equal(t, "pong", actual.Message)
