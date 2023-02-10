@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/dharanad/journal/internal/base"
+	"github.com/dharanad/journal/internal/base/server"
 	"log"
 )
 
@@ -11,9 +12,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Error setting up zap logger", err)
 	}
-	server := base.NewJournalRouter(logger)
-	r := server.SetupRouter()
-	server.RegisterRoutes(r)
+	r := server.NewServer()
 	if err := r.Run(":80"); err != nil {
 		panic("Error starting web server. Reason :" + err.Error())
 	}
