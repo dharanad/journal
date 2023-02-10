@@ -3,8 +3,6 @@ name: journal docker build & push CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "*" ]
 
 env:
   REGISTRY: docker.io
@@ -16,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag journal:$(date +%s)
 
       - name: Set up QEMU
         if: ${{ github.event_name != 'pull_request' }}
@@ -39,5 +34,6 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: docker/build-push-action@v4
         with:
+          context: .
           push: true
           tags: journal/app:latest
