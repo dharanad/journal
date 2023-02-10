@@ -36,4 +36,4 @@ jobs:
         with:
           context: https://github.com/dharanad/journal.git#main # Temporary fix
           push: true
-          tags: journal/app:latest
+          tags: dharanaditya/journal:latest
